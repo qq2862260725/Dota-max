@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script>
+// 大小 明文暗文  请求链接上显示明文 传递的时候get可以直接写在链接里
+	//ajaxGet();
+	function ajaxGet() {
+		// req.query.name
+		$.ajax({
+			url: '/baidu.com',
+			type: 'post',// http://127.0.0.1:8080/baidu.com?name=li&age=1
+			success: function(reply) {
+				reply = JSON.parse(reply)
+				var a = reply.data
+				console.log(reply);
+			},
+			data: {
+				name:'li',
+				age: 1,
+				ll:11,
+			},
+			
+		});
+	}
+
+	// /agejsog?wenzhang=1 req.quer.name
+	get();
+	function get() {
+		$.get('/agejsog?name=1&address=sajljjflfjlk',function(reply) {
+			reply = JSON.parse(reply)
+			console.log(reply)
+		})
+	}
+	//post();
+	function post() {
+		var url = '/helew'
+		var data = {name: 1}
+		$.post(url, data, function() {})
+	}
+</script>
+</html>

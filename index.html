@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<meta charset="utf-8">
+	<title>DotaMax</title>
+	<link rel="stylesheet" type="text/css" href="css/index.less">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/Font-Awesome-3.2.1/css/font-awesome-ie7.min.css">
+	<link rel="stylesheet" type="text/css" href="css/Font-Awesome-3.2.1/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="page">
+		<div class="header" name="top" id="top1">
+			<div class="logo">
+				<a href="index.html"><img src="img/1.png"></a>
+			</div>
+			<div class="maxsection">
+				<a class="home_active">
+					<ul>
+						<li>首页</li>
+					</ul>
+				</a>
+				<a class="data">
+					<ul>
+						<li>数据</li>
+						<li class="none">英雄</li>
+						<li class="none">物品</li>
+					</ul>
+				</a>	
+				<a><ul><li>职业</li></ul></a>
+				<a><ul><li>玩家</li></ul></a>
+				<a><ul><li>天梯</li></ul></a>
+				<a class="data">
+					<ul>
+						<li>直播</li>
+						<li class="none">直播</li>
+						<li class="none">视频</li>
+					</ul>
+				</a>
+				<a><ul><li>APP</li></ul></a>
+				<a class="market"><li>商城</li></a>
+			</div>
+			<div class="user">
+				<a><ul><li>登录</li></ul></a>
+				<a><ul><li>注册</li></ul></a>
+			</div>
+		</div>
+		<div class="content">
+			<div class="content_head">
+				<div class="shouye1">
+					<div class="home1">
+						<p>首页</p>
+					</div>
+					<div class="search">
+						<div class="gameid">
+							<input class="large-search-text" type="text" name="q" placeholder="输入国服昵称或数字ID">
+						</div>
+						<div class="enter">
+							<button type="submit" value="Go" class="large-search-btn">Go</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contents">
+				<div class="data_content">
+					<div class="huodong">
+						<div class="topic">
+							<div class="zuanti">
+								<div class="topic_img">
+									<span class="icon-th"></span>
+								</div>
+								<div class="word">
+									<p>专题活动</p>
+								</div>
+							</div>
+						</div>
+						<div class="action">
+							<div class="item" id="activity" v-for='src in allInfo.topic'>
+								<img v-bind:src=src.src>
+							</div>
+						</div>
+					</div>
+					<div class="counten_live">
+						<div class="dotalive">
+							<div class="douyu">
+								<div class="topic1">
+									<div class="dota_zhibo">
+										<div class="lives_img">
+											<span class="icon-th" id="one"></span>
+										</div>
+										<div class="lives_text">
+											<p>直播</p>
+										</div>
+									</div>
+									<div class="more">
+										<div class="fangkuai">
+											<span class="icon-plus-sign-alt"></span>
+										</div>
+										<div class="wenzi">
+											<p>More</p>
+										</div>
+									</div>
+								</div>
+								<div class="douyulive">
+									<div class="zhibo" id="zhiboba" v-for='live in lives'>
+										<div class="live_img" id="{{live.img}}">
+											<img class="zhanting" src="img/2.png">
+										</div>
+										<div class="live_text">
+											<h5>{{live.topic}}</h5>
+											<p>{{live.host}}</p>
+											<div class="guankan">
+												<div class="live_sum">
+													<div class="live_sum_img">
+														<span class="icon-eye-open"></span>
+													</div>
+													<div class="live_sum_text">
+														<p>{{live.people}}</p>
+													</div>
+												</div>
+												<div class="live_sum">
+													<div class="live_sum_img">
+														<span class="icon-map-marker"></span>
+													</div>
+													<div class="live_sum_text">
+														<p>{{live.live_tv}}</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="shop">
+								<div class="topic1">
+									<div class="dota_zhibo">
+										<div class="lives_img">
+											<span class="icon-th" id="one"></span>
+										</div>
+										<div class="lives_text">
+											<p>M币商城</p>
+										</div>
+									</div>
+									<div class="more">
+										<div class="fangkuai">
+											<span class="icon-plus-sign-alt"></span>
+										</div>
+										<div class="wenzi">
+											<p>More</p>
+										</div>
+									</div>
+								</div>
+								<div class="dota2_item">
+									<div class="items" id="shipin" v-for="item in item">
+										<div class="items_img" id="{{item.img}}">
+											<div class="item_name">
+												<h5 data-type="{{item.type}}">{{item.name}}</h5>
+											</div>
+										</div>
+										<div class="items_text">
+											<p>{{item.prize}}M币</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="dota_data">
+							<div class="saicheng">
+								<div class="topic2">
+									<div class="dota_matchs">
+										<div class="match_img">
+											<span class="icon-list-ul" id="one"></span>
+										</div>
+										<div class="match_text">
+											<p>赛程</p>
+										</div>
+									</div>
+									<div class="mores">
+										<div class="fangkuais">
+											<span class="icon-plus-sign-alt" id="two"></span>
+										</div>
+										<div class="wenzis">
+											<p>More</p>
+										</div>
+									</div>
+								</div>
+								<div class="match_list">
+									<table>
+										<thead>
+											<tr class="match_head">
+												<td>对战战队</td>
+												<td>开始时间</td>
+											</tr>
+											<tr class="match_vs" v-for='match in match'>
+												<td>
+													<div class="td1">
+														<p><span><img v-bind:src=match.country1></span><span>{{match.team1}}</span></p>
+													</div>
+													<div class="td2">
+														<p>vs</p>
+													</div>
+													<div class="td1">
+														<p><span><img v-bind:src=match.country2></span><span>{{match.team2}}</span></p>
+													</div>
+												</td>
+												<td>{{match.match_time}}</td>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+							<div class="zhandui">
+								<div class="topic2">
+									<div class="dota_matchs">
+										<div class="match_img">
+											<span class="icon-list-ul" id="one"></span>
+										</div>
+										<div class="match_text">
+											<p>战队</p>
+										</div>
+									</div>
+									<div class="mores">
+										<div class="fangkuais">
+											<span class="icon-plus-sign-alt" id="two"></span>
+										</div>
+										<div class="wenzis">
+											<p>More</p>
+										</div>
+									</div>
+								</div>
+								<div class="match_team">
+									<table class="dota_team">
+										<thead>
+											<tr class="team_list_head">
+												<td>排名</td>
+												<td>战队</td>
+												<td>MMR</td>
+											</tr>
+											<tr class="team_list" v-for='team in arr5'>
+												<td>
+													<div class="team_sum">
+														<p>{{team.rank}}</p>
+													</div>
+													<div class="team_up">
+														<span v-if='team.recent == 0' class="icon-arrow-up"></span>
+														<span v-if='team.recent == 1' class="icon-arrow-up"></span>
+														<span v-if='team.recent == 2' class="icon-arrow-down"></span>
+													</div>
+												</td>
+												<td>
+													<div class="team_flag {{team.country}}">
+														
+													</div>
+													<div class="team_name">
+														<p>{{team.team_name}}</p>
+													</div>
+												</td>
+												<td>{{team.mmr}}</td>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_foot">
+						<div class="topic">
+							<div class="zuanti">
+								<div class="topic_img">
+									<span class="icon-list-ul"></span>
+								</div>
+								<div class="word">
+									<p>专题活动</p>
+								</div>
+							</div>
+							<div class="more0">
+								<div class="more0_img">
+									<span class="icon-plus-sign-alt"></span>
+								</div>
+								<div class="more0_text">
+									<p>More</p>
+								</div>
+							</div>
+						</div>
+						<div class="match">
+							<div class="matchs" id="bisai" v-for='match in allInfo.match'>
+								<img v-bind:src=match.src>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="get_top">
+				<a href="javascript:scrollTo(0,0);"><span class="icon-chevron-up"></span></a>
+			</div>
+			<div class="language">
+				<div class="language_flag" v-for='four in allInfo.flag'>
+					<img v-bind:src=four.src>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="http://yaaerr.com/static/mypage/bower_components/jquery/dist/jquery_e1abd1a.js"></script>
+<script src="http://yaaerr.com/static/mypage/bower_components/mockjs/dist/mock_6c281c2.js"></script>
+<script src="http://yaaerr.com/static/mypage/bower_components/vue/dist/vue_662a29e.js"></script>
+<script src="mock/mock.js"></script>
+<script src="js/index.js"></script>
+</html>
